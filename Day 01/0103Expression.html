@@ -1,0 +1,16 @@
+<html ng-app="ExpressionModule">
+	<head>
+		<title>This is all Expression Modules and Controllers</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<script>
+			var exModule = angular.module('ExpressionModule', []);
+			var exControl = exModule.controller('ExpressionController', ['$scope', function($scope){
+				$scope.name = "Jimmy Hum";
+				
+			}])
+		</script>
+	</head>
+	<body ng-controller="ExpressionController">
+		<p><h1>Hello {{name}}</h1></p>
+	</body>
+</html>
