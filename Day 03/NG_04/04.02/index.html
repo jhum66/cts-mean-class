@@ -1,0 +1,73 @@
+<html ng-app="WatcherModule">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+<script>
+
+angular.module('WatcherModule', []).controller('CostCtrl', ['$scope', function($scope){
+	$scope.cost = 1000.1;
+	$scope.add_tax = false;
+
+    $scope.shipping_options = [
+            { amount: 10.0, name: "Chennai Goods" },
+            { amount: 20.0, name: "Bangalore Express" },
+            { amount: 30.0, name: "Delhi Bullet Train" },
+            { amount: 40.0, name: "Hyderabad SuperFast"},
+            { amount: 50.0, name: "Mumbai local truck"}
+    ];
+	$scope.shipping = $scope.shipping_options[4];
+
+	$scope.total_bill = true;
+
+	$scope.update = function() {
+		$scope.tax = $scope.add_tax ? $scope.cost * 0.15 : 0.0;
+		$scope.total = parseFloat( $scope.cost ) + $scope.tax + $scope.shipping.amount;
+	}
+	$scope.$watch( 'cost+add_tax', $scope.update );
+	$scope.$watch( 'shipping', $scope.update );
+
+	$scope.$watch( 'total_bill', function(){
+		$scope.bill_display = $scope.total_bill ? 'block' : 'none';
+	});
+
+	$scope.final_bill = 0.0;
+	$scope.add = function() {
+		$scope.final_bill += $scope.total;
+	}
+	$scope.selectShipping =  function() {
+		console.log("Selected Shipping: "+ $scope.shipping.name);
+	}
+}]);
+
+</script>
+</head>
+<body>
+
+<div ng-controller="CostCtrl">
+<div>
+	<input type="checkbox" ng-model="add_tax">Add Tax
+	<input type="checkbox" ng-model="total_bill">Show Total
+</div>
+<div>
+<label ng-repeat="s in shipping_options" >
+<input type="radio" ng-click="selectShipping()" ng-model="$parent.shipping" ng-value="s">{{s.name}}
+</label>
+<!-- Friends, do you something different in <input type="radio" line? Let's discuss: Subhash-->
+</div>
+Cost: <input ng-model="cost" type="text" placeholder="cost" />
+<p>
+This cost is {{cost|currency}}.
+</p>
+<p>
+This tax is {{tax*0.15|currency}}.
+</p>
+<p style="display:{{bill_display}};">
+This total is {{total|currency}}.
+<button ng-click="add()">Add</button>
+</p>
+<p style="display:{{bill_display}};">
+Your running total is {{final_bill|currency}}.
+</p>
+</div>
+
+</body>
+</html>
