@@ -1,0 +1,12 @@
+var a = 12;
+console.log (typeof a);
+var b = "aaaa";
+console.log (typeof b);
+var c = 'a';
+console.log (typeof c);
+var d = [];
+console.log (typeof d);
+var e = {};
+console.log (typeof e);
+var f = false;
+console.log (typeof f);
