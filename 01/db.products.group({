@@ -1,0 +1,30 @@
+db.products.group({
+    "key": {
+        "_id": true
+    },
+    "initial": {
+        "sumprice": 0
+    },
+    "reduce": function(obj, prev) {
+        prev.sumprice = prev.sumprice + obj.price +3;
+    },
+    "cond": {
+        "price": {
+            "$gt": 0
+        }
+    }
+});
+
+
+db.products.group({
+    "key": {
+        "_id": true,
+        "name": true
+    },
+    "initial": {
+        "sumprice": 0
+    },
+    "reduce": function(obj, prev) {
+        prev.sumprice = prev.sumprice + obj.price + 2;
+    }
+});

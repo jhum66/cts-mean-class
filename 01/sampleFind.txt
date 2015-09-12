@@ -1,0 +1,2 @@
+db.products.find( { $where: "this.price >= 11" } );
+db.products.find( { $where: function() { return (this.price == 20) } } );

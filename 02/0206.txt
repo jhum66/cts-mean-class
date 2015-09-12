@@ -1,0 +1,5 @@
+var bulk = db.customers.initializeUnorderedBulkOp();
+bulk.insert({username: "customer1", email: "customer1@customer.com", password: hex_md5("customer1paswd")});
+bulk.insert({username: "customer2", email: "customer2@customer.com", password: hex_md5("customer2paswd")});
+bulk.insert({username: "customer3", email: "customer3@customer.com", password: hex_md5("customer3paswd")});
+bulk.execute({w: "majority", wtimeout: 3000});

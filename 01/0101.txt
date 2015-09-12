@@ -1,0 +1,15 @@
+var new_entry = {
+  firstname: "Subhash",
+  lastname: "Edakkuda",
+  age: 25,
+  address: {
+    street: "OMR, Perungudi", 
+    city: "Chennai",
+    state: "TN", 
+    postalcode: 600096
+  }
+}
+
+db.addressBook.save(new_entry)
+
+db.addressBook.find()

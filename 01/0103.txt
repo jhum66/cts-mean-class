@@ -1,0 +1,3 @@
+var post = {"title" : "My Blog Post",
+	"content" : "Here's my blog post.",
+	"date" : new Date()}

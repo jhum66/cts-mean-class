@@ -1,0 +1,22 @@
+{
+   "_id": 123456,
+   "firstName": "John",
+   "lastName": "Clay",
+   "age": 25,
+   "address": {
+      "streetAddress": "131 GEN. Almério de Moura Street",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "postalCode": "20921060"
+   },
+   "phoneNumber":[
+      {
+         "type": "home",
+         "number": "+5521 2222-3333"
+      },
+      {
+         "type": "mobile",
+         "number": "+5521 9888-7777"
+      }
+   ]
+}

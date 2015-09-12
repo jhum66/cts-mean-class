@@ -1,0 +1,4 @@
+db.customers.insert(
+{username: "customer1", email: "customer1@customer.com", password: hex_md5("customer1paswd")}, 
+{writeConcern: {w: 0}}
+)

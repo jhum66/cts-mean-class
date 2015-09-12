@@ -1,0 +1,13 @@
+//customer
+{ 
+   _id: 1
+   "username" : "John Clay",
+   "email": "johnclay@crgv.com",
+   "password": "bf383e8469e98b44895d61b821748ae1"
+   "details": {
+      "firstName": "John",
+      "lastName": "Clay",
+      "gender": "male",
+      "age": 25
+   }
+}
