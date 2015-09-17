@@ -1,0 +1,17 @@
+{
+   "username" : "customer1",
+   "email" : "customer1@customer.com",
+   "password" : "b1c5098d0c6074db325b0b9dddb068e1",
+   "age" : 25,
+   "address" : {
+
+      "street" : "Street 1",
+      "zipcode" : "87654321",
+      "state" : "RJ"
+
+   }
+}
+
+db.customers.createIndex({username: 1})
+
+
